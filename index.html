@@ -32,36 +32,36 @@
         <section class="bill-section">
           <label for="bill">Bill</label>
           <p>$</p>
-          <input type="number" min="0" max="10000" placeholder="0" />
+          <input type="number" min="0" max="10000" placeholder="0" id="bill" />
         </section>
         <section class="tip-section">
           <label for="tip">Select Tip %</label>
           <div class="tip-selector">
-            <button id="tip5" class="tip-value">5</button>
-            <button id="tip10" class="tip-value">10</button>
-            <button id="tip15" class="tip-value">15</button>
-            <button id="tip25" class="tip-value">25</button>
-            <button id="tip50" class="tip-value">50</button>
-            <input type="number" min="1" placeholder="Custom" />
+            <input type="button" class="tip-btn" value="5" />
+            <input type="button" class="tip-btn" value="10" />
+            <input type="button" class="tip-btn" value="15" />
+            <input type="button" class="tip-btn" value="25" />
+            <input type="button" class="tip-btn" value="50" />
+            <input type="number" id="custom" min="1" placeholder="Custom" />
           </div>
         </section>
         <section class="people-section">
           <label for="people">Number of People</label>
-          <input type="number" placeholder="0" min="1" required />
+          <input id="people" type="number" placeholder="0" min="1" required />
         </section>
       </div>
       <section>
         <div class="tip">
           <h3>Tip Amount</h3>
           <h4>/ person</h4>
-          <h1 class="tip-result">$0.00</h1>
+          <h1 id="tip-result">$0.00</h1>
         </div>
         <div class="total">
           <h3>Total</h3>
           <h4>/ person</h4>
-          <h1 class="total-result">$0.00</h1>
+          <h1 id="total-result">$0.00</h1>
         </div>
-        <button>Reset</button>
+        <button id="reset">Reset</button>
       </section>
     </main>
 
@@ -74,5 +74,6 @@
         >Dachi Laperashvili</a
       >.
     </footer>
+    <script src="script.js"></script>
   </body>
 </html>
