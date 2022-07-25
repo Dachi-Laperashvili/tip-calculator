@@ -19,18 +19,24 @@ const init = () => {
 init();
 
 const calculateTip = function (percentage) {
+  if (people.value === 0) {
+  }
   let perPerson = bill.value / people.value;
   let tipAmount = perPerson * (percentage / 100);
   let totalAmount = perPerson + tipAmount;
 
-  tip.textContent = '$' + tipAmount;
-  total.textContent = '$' + totalAmount;
+  tip.textContent = '$' + tipAmount.toFixed(2);
+  total.textContent = '$' + totalAmount.toFixed(2);
 };
 
 for (let i = 0; i < tipBtn.length; i++) {
   tipBtn[i].addEventListener('click', function () {
-    let percentage = tipBtn[i].value;
+    let percentage = parseFloat(tipBtn[i].value);
     calculateTip(percentage);
   });
 }
+custom.addEventListener('change', function () {
+  percentage = parseFloat(custom.value);
+  calculateTip(percentage);
+});
 reset.addEventListener('click', init);
