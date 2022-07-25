@@ -32,49 +32,60 @@
       <img src="images/logo.svg" alt="logo" />
     </header>
     <main>
-      <div class="input">
-        <section class="bill-section">
-          <label for="bill">Bill</label>
-          <img src="images/icon-dollar.svg" alt="$" />
-          <input type="number" id="bill" min="0" max="10000" placeholder="0" />
-        </section>
-        <section class="tip-section">
-          <label for="tip">Select Tip %</label>
-          <div class="tip-selector">
-            <input type="button" class="tip-btn" value="5%" />
-            <input type="button" class="tip-btn" value="10%" />
-            <input type="button" class="tip-btn" value="15%" />
-            <input type="button" class="tip-btn" value="25%" />
-            <input type="button" class="tip-btn" value="50%" />
-            <input type="number" id="custom" min="1" placeholder="Custom" />
+      <div class="container">
+        <div class="input">
+          <section class="first section">
+          <section class="sub-section">
+            <h1>Bill</h1>
+            <img src="images/icon-dollar.svg" alt="$" />
+            <input
+              type="number"
+              id="bill"
+              min="0"
+              max="10000"
+              placeholder="0"
+            />
+          </section>
+          <section class="sub-section">
+            <h1>Select Tip %</h1>
+            <div class="tip-selector">
+              <input type="button" class="tip-btn" value="5%" />
+              <input type="button" class="tip-btn" value="10%" />
+              <input type="button" class="tip-btn" value="15%" />
+              <input type="button" class="tip-btn" value="25%" />
+              <input type="button" class="tip-btn" value="50%" />
+              <input type="number" id="custom" min="1" placeholder="Custom" />
+            </div>
+          </section>
+          <section class="sub-section">
+            <h1>Number of People</h1>
+            <img src="images/icon-person.svg" alt="👤" />
+            <input id="people" type="number" placeholder="0" min="1" required />
+          </section>
+        </div>
+      </section>
+        <section class="second-section">
+          <section class="sub-section">
+          <div class="tip">
+            <h3>Tip Amount</h3>
+            <h4>/ person</h4>
+            <h1 id="tip-result">$0.00</h1>
           </div>
         </section>
-        <section class="people-section">
-          <label for="people">Number of People</label>
-          <img src="images/icon-person.svg" alt="👤" />
-          <input id="people" type="number" placeholder="0" min="1" required />
+        <section class="sub-section">
+          <div class="total">
+            <h3>Total</h3>
+            <h4>/ person</h4>
+            <h1 id="total-result">$0.00</h1>
+          </div>
+        </section>
+          <button id="reset">Reset</button>
         </section>
       </div>
-      <section>
-        <div class="tip">
-          <h3>Tip Amount</h3>
-          <h4>/ person</h4>
-          <h1 id="tip-result">$0.00</h1>
-        </div>
-        <div class="total">
-          <h3>Total</h3>
-          <h4>/ person</h4>
-          <h1 id="total-result">$0.00</h1>
-        </div>
-        <button id="reset">Reset</button>
-      </section>
     </main>
 
     <footer class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-        >Frontend Mentor</a
-      >. Coded by
+      Coded by
       <a href="https://github.com/Dachi-Laperashvili" target="_blank"
         >Dachi Laperashvili</a
       >.
