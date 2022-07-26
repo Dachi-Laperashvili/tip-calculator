@@ -65,17 +65,7 @@ main {
   word-wrap: break-word;
   position: relative;
 }
-#reset {
-  border: none;
-  border-radius: 3px;
-  background-color: var(--cyan);
-  color: var(--dark-cyan);
-  padding: 15px 50px;
-  font-weight: bold;
-  margin-left: 30%;
-  margin-top: 30px;
-  cursor: pointer;
-}
+
 .total .sub-section {
   margin: 50px 40px 0 40px;
 }
@@ -159,4 +149,23 @@ input {
 .input:focus {
   border: solid 3px var(--cyan);
   outline: none;
+}
+#error {
+  color: rgb(230, 65, 65);
+  margin-left: 60%;
+}
+#reset {
+  border: none;
+  border-radius: 3px;
+  padding: 15px 50px;
+  font-weight: bold;
+  margin-left: 30%;
+  margin-top: 30px;
+  cursor: pointer;
+  background-color: hsl(181, 100%, 21%);
+  color: hsl(183, 100%, 19%);
+}
+#reset:focus {
+  background-color: var(--cyan);
+  color: var(--dark-cyan);
 }
