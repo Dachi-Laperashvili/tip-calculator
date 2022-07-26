@@ -15,6 +15,8 @@ const init = () => {
   people.value = 0;
   tip.textContent = '$0.00';
   total.textContent = '$0.00';
+  error.style.display = 'none';
+  people.style.border = 'solid 2px transparent';
 };
 init();
 
@@ -27,7 +29,7 @@ const calculateTip = function (percentage) {
     let totalAmount = perPerson + tipAmount;
     tip.textContent = '$' + tipAmount.toFixed(2);
     total.textContent = '$' + totalAmount.toFixed(2);
-  } else {
+  } else if (people.value <= 0) {
     error.innerHTML = "Can't be zero";
     people.style.border = 'solid 3px rgb(230, 65, 65)';
   }
