@@ -174,12 +174,39 @@ input {
   color: var(--dark-cyan);
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 920px) {
   html {
     font-size: 80%;
   }
   .container {
     width: auto;
     display: block;
+  }
+  h1 {
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 420px) {
+  h1 {
+    font-size: 15px;
+  }
+  .total {
+    width: 280px;
+    margin-left: 18%;
+  }
+  .sub-section {
+    margin-left: 13%;
+  }
+  .tip-btn {
+    width: 90px;
+  }
+  #custom {
+    width: 90px;
+  }
+  .input-section > .input {
+    width: 280px;
+  }
+  .result {
+    font-size: 30px;
   }
 }
