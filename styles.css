@@ -19,6 +19,7 @@ body {
   font-family: 'Space Mono', monospace;
   font-weight: 700;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 header,
 footer {
@@ -70,7 +71,6 @@ main {
   margin: 50px 40px 0 40px;
 }
 h1 {
-  padding-bottom: 10px;
   font-size: 18px;
 }
 .result {
@@ -125,7 +125,7 @@ h1 {
   background-color: var(--white);
   text-align: right;
   border: none;
-  width: 350px;
+  width: 400px;
 }
 .input-section > img {
   position: absolute;
@@ -152,11 +152,11 @@ input {
 }
 #error {
   color: rgb(230, 65, 65);
-  margin-left: 65%;
+  float: right;
 }
 #error2 {
   color: rgb(230, 65, 65);
-  margin-left: 65%;
+  float: right;
 }
 #reset {
   border: none;
@@ -164,7 +164,7 @@ input {
   padding: 15px 50px;
   font-weight: bold;
   margin-left: 30%;
-  margin-top: 30px;
+  margin-top: 15%;
   cursor: pointer;
   background-color: hsl(181, 100%, 21%);
   color: hsl(183, 100%, 19%);
@@ -172,4 +172,14 @@ input {
 #reset:focus {
   background-color: var(--cyan);
   color: var(--dark-cyan);
+}
+
+@media screen and (max-width: 900px) {
+  html {
+    font-size: 80%;
+  }
+  .container {
+    width: auto;
+    display: block;
+  }
 }
