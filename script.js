@@ -1,5 +1,7 @@
 'use strict';
 
+// variables and element selecting
+
 const bill = document.getElementById('bill');
 const people = document.getElementById('people');
 const tipBtn = document.querySelectorAll('.tip-btn');
@@ -11,6 +13,8 @@ const error = document.getElementById('error');
 const error2 = document.getElementById('error2');
 let percentage;
 
+// function to reset every value
+
 const init = () => {
   bill.value = 0;
   custom.value = '';
@@ -21,8 +25,12 @@ const init = () => {
   error2.style.display = 'none';
   people.style.border = 'solid 2px transparent';
   bill.style.border = 'solid 2px transparent';
+  reset.style.backgroundColor = 'hsl(181, 100%, 21%)';
+  reset.style.color = 'hsl(183, 100%, 19%)';
 };
 init();
+
+// function to calculate tip and total amount
 
 const calculateTip = function (percentage) {
   if (people.value >= 1 && bill.value >= 1) {
@@ -53,7 +61,14 @@ const calculateTip = function (percentage) {
     error2.innerHTML = "Can't be zero";
     bill.style.border = 'solid 3px rgb(230, 65, 65)';
   }
+
+  if (total.textContent !== '$0.00' && tip.textContent !== '$0.00') {
+    reset.style.backgroundColor = 'hsl(172, 67%, 45%)';
+    reset.style.color = 'hsl(183, 100%, 15%)';
+  }
 };
+
+// looping through every tip button and giving it functionality
 
 for (let i = 0; i < tipBtn.length; i++) {
   tipBtn[i].addEventListener('click', function () {
@@ -62,8 +77,13 @@ for (let i = 0; i < tipBtn.length; i++) {
   });
 }
 
+// functionality to custom button
+
 custom.addEventListener('change', function () {
   percentage = parseFloat(custom.value);
   calculateTip(percentage);
 });
+
+// functionality to reset button
+
 reset.addEventListener('click', init);
