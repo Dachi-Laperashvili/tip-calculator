@@ -152,7 +152,11 @@ input {
 }
 #error {
   color: rgb(230, 65, 65);
-  margin-left: 60%;
+  margin-left: 65%;
+}
+#error2 {
+  color: rgb(230, 65, 65);
+  margin-left: 65%;
 }
 #reset {
   border: none;
