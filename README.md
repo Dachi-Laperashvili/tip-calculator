@@ -7,18 +7,6 @@ Users should be able to:
 - See hover states for all interactive elements on the page
 - Calculate the correct tip and total cost of the bill per person
 
-### Screenshot
-
-![desktop-design-completed](./design/desktop-design-completed.png)
-
-![desktop-design-empty](./design/desktop-design-empty.png)
-
-![desktop-design-error](./design/desktop-design-error.png)
-
-![mobile-design(1)](./design/mobile-design(1).jpg)
-
-![mobile-design(2)](<./design/mobile-design(2).jpg>)
-
 ### Links
 
 - Solution URL: https://github.com/Dachi-Laperashvili/tip-calculator
