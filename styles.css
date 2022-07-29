@@ -122,6 +122,10 @@ h1 {
   font-size: 20px;
   color: hsl(186, 14%, 43%);
 }
+.input-section {
+  width: fit-content;
+  height: fit-content;
+}
 .input-section > .input {
   background-color: var(--white);
   text-align: right;
