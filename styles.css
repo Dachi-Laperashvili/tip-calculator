@@ -65,6 +65,7 @@ main {
   overflow-wrap: break-word;
   word-wrap: break-word;
   position: relative;
+  text-align: center;
 }
 
 .total .sub-section {
@@ -161,10 +162,8 @@ input {
 #reset {
   border: none;
   border-radius: 3px;
-  padding: 15px 50px;
+  padding: 15px 100px;
   font-weight: bold;
-  margin-left: 30%;
-  margin-top: 15%;
   cursor: pointer;
   background-color: hsl(181, 100%, 21%);
   color: hsl(183, 100%, 19%);
@@ -175,36 +174,36 @@ input {
 }
 
 @media screen and (max-width: 920px) {
-  html {
-    font-size: 80%;
-  }
   .container {
     width: auto;
     display: block;
+    font-size: smaller;
+  }
+  .section {
+    width: 300px;
+    height: auto;
   }
   h1 {
     font-size: 15px;
-  }
-}
-@media screen and (max-width: 420px) {
-  h1 {
-    font-size: 15px;
-  }
-  .total {
-    width: 280px;
-    margin-left: 18%;
-  }
-  .sub-section {
-    margin-left: 13%;
-  }
-  .tip-btn {
-    width: 90px;
-  }
-  #custom {
-    width: 90px;
   }
   .input-section > .input {
     width: 280px;
+  }
+  .total {
+    min-height: 250px;
+  }
+  .tip-btn {
+    width: 120px;
+  }
+  #custom {
+    width: 120px;
+  }
+  #reset {
+    padding: 15px 70px;
+  }
+  #error,
+  #error2 {
+    margin: 3px 0 0 0;
   }
   .result {
     font-size: 25px;
