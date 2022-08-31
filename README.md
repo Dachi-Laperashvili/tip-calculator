@@ -10,10 +10,10 @@ Users should be able to:
 
 ### Screenshot
 
-![desktop-design-completed] (.design/desktop-design-completed.jpg)
-![desktop-design-empty] (.design/desktop-design-empty.jpg)
-![active-states] (.design/active-states.jpg)
-![mobile-design] (.design/mobile-design.jpg)
+(.design/desktop-design-completed.jpg)
+(.design/desktop-design-empty.jpg)
+(.design/active-states.jpg)
+(.design/mobile-design.jpg)
 
 ### Links
 
