@@ -102,7 +102,7 @@ for (let i = 0; i < tipBtn.length; i++) {
 
   // inputing tip functionality
   tipBtn[i].addEventListener('click', tipFun);
-  bill.addEventListener('click', tipFun);
+  bill.addEventListener('change', tipFun);
   people.addEventListener('change', tipFun);
 }
 
