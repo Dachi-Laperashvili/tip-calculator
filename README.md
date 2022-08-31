@@ -13,7 +13,7 @@ Users should be able to:
 ![](design/desktop-design-completed.jpg)
 ![](design/desktop-design-empty.jpg)
 ![](design/active-states.jpg)
-![](design/mobile-design.jpg)
+<img align="center" src="(design/mobile-design.jpg)"/>
 
 ### Links
 
