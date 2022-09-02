@@ -38,36 +38,32 @@ init();
 // function to check if values are 0 or if calculator is in active state
 const checkValue = function () {
   if (
-    people.value !== 0 &&
+    people.value !== '0' &&
     people.value !== '' &&
-    bill.value !== 0 &&
+    bill.value !== '0' &&
     bill.value !== ''
   ) {
     active = true;
   }
 
   // checking if number of people value is smaller than zero or empty string
-  if (people.value <= 0 || people.value === '') {
+  if (people.value <= '0' || people.value === '') {
     error.style.display = 'block';
     error.textContent = "Can't be zero";
     people.style.border = 'solid 3px rgb(230, 65, 65)';
-    active = false;
   } else {
     error.style.display = 'none';
     people.style.border = 'solid 2px transparent';
-    active = true;
   }
 
   // checking if bill value is smaller than zero or empty string
-  if (bill.value <= 0 || bill.value === '') {
+  if (bill.value <= '0' || bill.value === '') {
     error2.style.display = 'block';
     error2.textContent = "Can't be zero";
     bill.style.border = 'solid 3px rgb(230, 65, 65)';
-    active = false;
   } else {
     error2.style.display = 'none';
     bill.style.border = 'solid 2px transparent';
-    active = true;
   }
 };
 
@@ -86,6 +82,7 @@ const calculateTip = function (percentage) {
   bill.style.border = 'solid 2px transparent';
   active = false;
 };
+
 // looping through every tip button and giving it functionality
 
 for (let i = 0; i < tipBtn.length; i++) {
@@ -94,7 +91,7 @@ for (let i = 0; i < tipBtn.length; i++) {
     checkValue();
     if (active) {
       tipBtn[i].focus();
-      let percentage = parseFloat(tipBtn[i].value);
+      percentage = parseFloat(tipBtn[i].value);
       calculateTip(percentage);
       reset.style.backgroundColor = 'hsl(172, 67%, 45%)';
     }
@@ -109,9 +106,12 @@ for (let i = 0; i < tipBtn.length; i++) {
 // functionality to custom button
 const customFunction = function () {
   if (custom.value !== '') {
-    percentage = parseFloat(custom.value);
-    calculateTip(percentage);
-    reset.style.backgroundColor = 'hsl(172, 67%, 45%)';
+    checkValue();
+    if (active) {
+      percentage = parseFloat(custom.value);
+      calculateTip(percentage);
+      reset.style.backgroundColor = 'hsl(172, 67%, 45%)';
+    }
   }
 };
 // inputing custom functionality
