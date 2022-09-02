@@ -9,8 +9,7 @@ const custom = document.getElementById('custom');
 const tip = document.getElementById('tip-result');
 const total = document.getElementById('total-result');
 const reset = document.getElementById('reset');
-const error = document.getElementById('error');
-const error2 = document.getElementById('error2');
+const error = document.querySelectorAll('.error');
 
 // variables
 let percentage, active;
@@ -24,12 +23,14 @@ const init = () => {
   people.value = '';
   tip.textContent = '$0.00';
   total.textContent = '$0.00';
+  for (let i = 0; i < error.length; i++) {
+    error[i].textContent = '';
+  }
 
   // reseting styles
-  error.style.display = 'none';
-  error2.style.display = 'none';
-  people.style.border = 'solid 2px transparent';
-  bill.style.border = 'solid 2px transparent';
+  tipBtn.forEach(btn => btn.classList.remove('focused-btn'));
+  bill.classList.remove('hidden');
+  people.classList.remove('hidden');
   reset.style.backgroundColor = 'hsl(181, 100%, 21%)';
   reset.style.color = 'hsl(183, 100%, 19%)';
 };
@@ -41,29 +42,33 @@ const checkValue = function () {
     people.value !== '0' &&
     people.value !== '' &&
     bill.value !== '0' &&
-    bill.value !== ''
+    bill.value !== '' &&
+    typeof percentage !== 'undefined'
   ) {
     active = true;
   }
 
   // checking if number of people value is smaller than zero or empty string
-  if (people.value <= '0' || people.value === '') {
-    error.style.display = 'block';
-    error.textContent = "Can't be zero";
-    people.style.border = 'solid 3px rgb(230, 65, 65)';
+  if (people.value === '0' || people.value === '') {
+    error[1].textContent = "Can't be zero";
+    people.classList.add('hidden');
   } else {
-    error.style.display = 'none';
-    people.style.border = 'solid 2px transparent';
+    error[1].textContent = '';
+    people.classList.remove('hidden');
   }
 
   // checking if bill value is smaller than zero or empty string
-  if (bill.value <= '0' || bill.value === '') {
-    error2.style.display = 'block';
-    error2.textContent = "Can't be zero";
-    bill.style.border = 'solid 3px rgb(230, 65, 65)';
+  if (bill.value === '0' || bill.value === '') {
+    error[0].textContent = "Can't be zero";
+    bill.classList.add('hidden');
   } else {
-    error2.style.display = 'none';
-    bill.style.border = 'solid 2px transparent';
+    error[0].textContent = '';
+    bill.classList.remove('hidden');
+  }
+
+  if (active) {
+    calculateTip(percentage);
+    reset.style.backgroundColor = 'hsl(172, 67%, 45%)';
   }
 };
 
@@ -76,10 +81,11 @@ const calculateTip = function (percentage) {
   tip.textContent = '$' + tipAmount.toFixed(2);
   total.textContent = '$' + totalAmount.toFixed(2);
 
-  error.style.display = 'none';
-  error2.style.display = 'none';
-  people.style.border = 'solid 2px transparent';
-  bill.style.border = 'solid 2px transparent';
+  for (let i = 0; i < error.length; i++) {
+    error[i].textContent = '';
+  }
+  bill.classList.remove('hidden');
+  people.classList.remove('hidden');
   active = false;
 };
 
@@ -87,38 +93,30 @@ const calculateTip = function (percentage) {
 
 for (let i = 0; i < tipBtn.length; i++) {
   // functionality to tip buttons
-  const tipFun = function () {
+  tipBtn[i].addEventListener('click', function () {
     checkValue();
-    if (active) {
-      tipBtn[i].focus();
-      percentage = parseFloat(tipBtn[i].value);
-      calculateTip(percentage);
-      reset.style.backgroundColor = 'hsl(172, 67%, 45%)';
+    tipBtn[i].classList.remove('focused-btn');
+    percentage = parseFloat(tipBtn[i].value);
+    calculateTip(percentage);
+    for (let j = 0; j <= tipBtn.length; j++) {
+      tipBtn[i].classList.add('focused-btn');
+      tipBtn[j].classList.remove('focused-btn');
     }
-  };
-
-  // inputing tip functionality
-  tipBtn[i].addEventListener('click', tipFun);
-  bill.addEventListener('change', tipFun);
-  people.addEventListener('change', tipFun);
+  });
 }
 
 // functionality to custom button
 const customFunction = function () {
   if (custom.value !== '') {
     checkValue();
-    if (active) {
-      percentage = parseFloat(custom.value);
-      calculateTip(percentage);
-      reset.style.backgroundColor = 'hsl(172, 67%, 45%)';
-    }
+    tipBtn.forEach(btn => btn.classList.remove('focused-btn'));
+    percentage = parseFloat(custom.value);
+    calculateTip(percentage);
   }
 };
 // inputing custom functionality
 custom.addEventListener('change', customFunction);
-bill.addEventListener('change', customFunction);
-people.addEventListener('change', customFunction);
-
+custom.addEventListener('click', customFunction);
 // functionality to reset button
 reset.addEventListener('click', init);
 

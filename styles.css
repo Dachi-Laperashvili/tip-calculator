@@ -100,7 +100,7 @@ h1 {
   background-color: var(--dark-cyan);
   cursor: pointer;
 }
-.tip-btn:focus {
+.focused-btn {
   background-color: var(--cyan);
   color: var(--dark-cyan);
   font-weight: 700;
@@ -155,13 +155,13 @@ input {
   border: solid 3px var(--cyan);
   outline: none;
 }
-#error {
+.error {
   color: rgb(230, 65, 65);
+  display: block;
   float: right;
 }
-#error2 {
-  color: rgb(230, 65, 65);
-  float: right;
+.hidden {
+  border: solid 3px rgb(230, 65, 65);
 }
 #reset {
   border: none;
