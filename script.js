@@ -23,6 +23,7 @@ const init = () => {
   people.value = '';
   tip.textContent = '$0.00';
   total.textContent = '$0.00';
+  percentage = '';
   for (let i = 0; i < error.length; i++) {
     error[i].textContent = '';
   }

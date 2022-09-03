@@ -126,7 +126,7 @@ h1 {
   width: fit-content;
   height: fit-content;
 }
-.input-section > .input {
+.input {
   background-color: var(--white);
   text-align: right;
   border: none;
