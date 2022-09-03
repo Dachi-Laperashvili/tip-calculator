@@ -134,7 +134,7 @@ h1 {
 }
 .input-section > img {
   position: absolute;
-  margin-left: 20px;
+  margin: 20px;
   margin-top: 10px;
 }
 input {
@@ -192,6 +192,9 @@ input {
   }
   .input-section > .input {
     width: 280px;
+  }
+  .input-section > img {
+    margin-bottom: 10px;
   }
   .total {
     min-height: 250px;
