@@ -32,9 +32,25 @@ const init = () => {
   bill.classList.remove('hidden');
   people.classList.remove('hidden');
   reset.style.backgroundColor = 'hsl(181, 100%, 21%)';
-  reset.style.color = 'hsl(183, 100%, 19%)';
 };
 init();
+
+// function to calculate tip and total amount
+const calculateTip = function (percentage) {
+  let perPerson = bill.value / people.value;
+  let tipAmount = perPerson * (percentage / 100);
+  let totalAmount = perPerson + tipAmount;
+
+  tip.textContent = '$' + tipAmount.toFixed(2);
+  total.textContent = '$' + totalAmount.toFixed(2);
+
+  for (let i = 0; i < error.length; i++) {
+    error[i].textContent = '';
+  }
+  bill.classList.remove('hidden');
+  people.classList.remove('hidden');
+  active = false;
+};
 
 // function to check if values are 0 or if calculator is in active state
 const checkValue = function () {
@@ -72,51 +88,34 @@ const checkValue = function () {
   }
 };
 
-// function to calculate tip and total amount
-const calculateTip = function (percentage) {
-  let perPerson = bill.value / people.value;
-  let tipAmount = perPerson * (percentage / 100);
-  let totalAmount = perPerson + tipAmount;
-
-  tip.textContent = '$' + tipAmount.toFixed(2);
-  total.textContent = '$' + totalAmount.toFixed(2);
-
-  for (let i = 0; i < error.length; i++) {
-    error[i].textContent = '';
-  }
-  bill.classList.remove('hidden');
-  people.classList.remove('hidden');
-  active = false;
-};
-
 // looping through every tip button and giving it functionality
 
 for (let i = 0; i < tipBtn.length; i++) {
   // functionality to tip buttons
   tipBtn[i].addEventListener('click', function () {
-    checkValue();
-    tipBtn[i].classList.remove('focused-btn');
     percentage = parseFloat(tipBtn[i].value);
-    calculateTip(percentage);
-    for (let j = 0; j <= tipBtn.length; j++) {
-      tipBtn[i].classList.add('focused-btn');
+    checkValue();
+
+    // looping through buttons again to make them focused
+    for (let j = 0; j < tipBtn.length; j++) {
       tipBtn[j].classList.remove('focused-btn');
     }
+    tipBtn[i].classList.add('focused-btn');
   });
 }
 
 // functionality to custom button
 const customFunction = function () {
-  if (custom.value !== '') {
-    checkValue();
-    tipBtn.forEach(btn => btn.classList.remove('focused-btn'));
+  tipBtn.forEach(btn => btn.classList.remove('focused-btn'));
+  if (Number(custom.value)) {
     percentage = parseFloat(custom.value);
-    calculateTip(percentage);
+    checkValue();
   }
 };
 // inputing custom functionality
 custom.addEventListener('change', customFunction);
 custom.addEventListener('click', customFunction);
+
 // functionality to reset button
 reset.addEventListener('click', init);
 
